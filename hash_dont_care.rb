@@ -1,19 +1,27 @@
-class HashDontCare < Hash
+class HashDontCare
+  def initialize
+    @h = {}
+  end
+
   def []=(k, v)
-    super symbolize_key!(k), v
+    @h[symbolize_key!(k)] = v
   end
   alias_method :store, :[]=
 
   def [](k)
-    super symbolize_key!(k)
+    @h[symbolize_key!(k)]
   end
 
   def key?(k)
-    super symbolize_key!(k)
+    @h.key?(symbolize_key!(k))
   end
   alias_method :has_key?, :key?
   alias_method :include?, :key?
   alias_method :member?, :key?
+
+  def keys
+    @h.keys
+  end
 
   private
 

@@ -34,13 +34,8 @@ class TestHashDontCare < Minitest::Test
     result = 'black'
 
     assert_equal true, rgb.key?(result)
-    assert_equal true, rgb.has_key?(result)
     assert_equal true, rgb.include?(result)
     assert_equal true, rgb.member?(result)
-  end
-
-  def test_sets_default_value
-    rgb = HashDontCare.new('#000000')
-    assert_equal '#000000', rgb[:black]
+    assert_equal true, rgb.has_key?(result)
   end
 end
