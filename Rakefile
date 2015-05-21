@@ -1,5 +1,5 @@
 task default: %w(test)
 
 task :test do
-  ruby 'test_hash_dont_care.rb'
+  ruby 'test/test_hash_dont_care.rb'
 end
