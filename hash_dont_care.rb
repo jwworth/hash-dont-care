@@ -1,4 +1,16 @@
 class HashDontCare < Hash
+  def initialize(argument= {})
+    if argument.is_a? Hash
+      super
+    end
+  end
+
+  def to_hash
+    map do |k,v|
+      { k => symbolize_key!(v)}
+    end.reduce :merge
+  end
+
   def []=(k, v)
     super symbolize_key!(k), v
   end

@@ -32,4 +32,19 @@ class TestHashDontCare < Minitest::Test
     rgb = HashDontCare.new('#000000')
     assert_equal '#000000', rgb[:black]
   end
+
+  def test_sets_hash
+    rgb = HashDontCare.new(black: '#00000')
+    assert_equal [:black], rgb.keys
+  end
+
+  def test_works_with_keyword_args
+    x = HashDontCare.new(black: 'yes')
+
+    def foo(black:)
+      black
+    end
+
+    assert_equal foo(x), 'yes'
+  end
 end
