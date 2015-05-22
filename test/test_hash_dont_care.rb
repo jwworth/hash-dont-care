@@ -22,7 +22,7 @@ class TestHashDontCare < Minitest::Test
     assert_equal [:black, :white], rgb.keys
   end
 
-  def test_it_has_a_sort_alias
+  def test_it_has_a_store_alias
     rgb = HashDontCare.new
     rgb.store('black', '#000000')
     assert_equal '#000000', rgb[:black]
